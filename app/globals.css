@@ -1,26 +1,133 @@
 @import "tailwindcss";
+@config "../tailwind.config.ts";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/*
+ * Global layer. Only things Tailwind utilities can't express live here:
+ * base element styles, focus ring, overlay textures, motion pre-states.
+ * Colour values come from tailwind.config.ts via theme(colors.*).
+ */
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@layer base {
+  html {
+    background-color: theme(colors.ink);
+    color: theme(colors.paper);
+    color-scheme: dark;
+    -webkit-text-size-adjust: 100%;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  body {
+    font-family: var(--font-mono), ui-monospace, monospace;
+    font-size: 1rem;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background-color: theme(colors.accent);
+    color: theme(colors.paper);
+  }
+
+  /* One focus ring for every interactive element. Never removed. */
+  :focus-visible {
+    outline: 2px solid theme(colors.accent);
+    outline-offset: 4px;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Outlined display text (hero wordmark). */
+@utility text-outline {
+  color: transparent;
+  -webkit-text-stroke: 1px theme(colors.line-strong);
+}
+
+/* Grain: static SVG turbulence. No animation, no blend modes, cheap to paint. */
+@utility bg-grain {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 160px 160px;
+}
+
+/* Scanlines: hard-stop 1px lines every 3px (not a visual gradient). */
+@utility bg-scanlines {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    theme(colors.paper) 0,
+    theme(colors.paper) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+}
+
+/* Accent corner ticks that slide in on hover (stack cells, stat cells). */
+@utility corner-ticks {
+  position: relative;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    pointer-events: none;
+    opacity: 0;
+    transition:
+      opacity 200ms cubic-bezier(0.22, 1, 0.36, 1),
+      transform 200ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  &::before {
+    top: -1px;
+    left: -1px;
+    border-top: 1px solid theme(colors.accent);
+    border-left: 1px solid theme(colors.accent);
+    transform: translate(4px, 4px);
+  }
+  &::after {
+    right: -1px;
+    bottom: -1px;
+    border-right: 1px solid theme(colors.accent);
+    border-bottom: 1px solid theme(colors.accent);
+    transform: translate(-4px, -4px);
+  }
+  &:hover::before,
+  &:hover::after {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Block caret after the hero tagline. */
+@utility caret {
+  display: inline-block;
+  width: 0.6em;
+  height: 1em;
+  margin-left: 0.25em;
+  vertical-align: -0.12em;
+  background-color: theme(colors.accent);
+}
+
+/* Reduced motion: kill every CSS transition and keyframe animation too. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    transition-duration: 0ms !important;
+    animation: none !important;
+  }
+}
+
+/*
+ * Motion pre-state. An inline script in <head> sets html[data-motion="on"]
+ * only when JS runs and the user has not asked for reduced motion.
+ * Without that flag, everything renders in its final state.
+ */
+html[data-motion="on"] [data-reveal],
+html[data-motion="on"] [data-mask],
+html[data-motion="on"] [data-line] {
+  opacity: 0;
+}
+
+/* Custom cursor active (desktop, fine pointer, motion allowed). */
+html[data-cursor="on"],
+html[data-cursor="on"] * {
+  cursor: none !important;
 }
