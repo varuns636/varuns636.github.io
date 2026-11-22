@@ -44,7 +44,9 @@ export const about = {
 
 export const recognition = [
   { date: "Sep 2026", title: "Best Team, Best Innovation", where: "Smart India Hackathon 2026, internal round, AIT. With BIS Assistant", tag: "Winner" },
+  { date: "Nov 2026", title: "Code for INNOVEX '26", where: "24-hour national-level hackathon, NSS IT Wing, NMAMIT, at Nitte University, Mangaluru. Jan Setu track, built SETUNEX", tag: "Hackathon" },
   { date: "Oct 2026", title: "National Level Hackathon 3.0", where: "\"Innovate for Impact\", R R Institute of Technology, Bengaluru", tag: "Hackathon" },
+  { date: "Oct 2026", title: "Cyber Sante: A week for Cyber Security", where: "Department of CSE, AIT, with Lakshya Student Forum", tag: "Event" },
   { date: "May 2025", title: "Second place, Quantum Qriosity", where: "Quiz competition, Department of Physics, AIT", tag: "2nd place" },
   { date: "Mar 2025", title: "Promptathon 2025", where: "Simba GPT, Acharya AI Fest 2025, with IVIS Labs", tag: "Hackathon" },
   { date: "Mar 2025", title: "Build for Bengaluru", where: "12-hour hackathon, Sri Krishna Institute of Technology, with IEEE Bangalore Section", tag: "Hackathon" },
@@ -66,6 +68,27 @@ export type Project = {
 };
 
 export const projects: readonly Project[] = [
+  {
+    slug: "setunex",
+    title: "SETUNEX",
+    kind: "GovTech / Web",
+    status: "Code for INNOVEX '26",
+    oneLiner: "A guided path through Karnataka government services, in Kannada or English.",
+    summary:
+      "Built in 24 hours for the Jan Setu track. Citizens find the services they can get, the documents they need and the exact steps to apply. Rules decide eligibility and every rule shows its official source. AI only explains, and blockers become steps instead of dead ends.",
+    points: [
+      "Tap-to-answer screening on a JSON rules engine, each rule with its source and review date",
+      "Document upload with Tesseract OCR flags missing, expired or mismatched documents",
+      "NetworkX dependency graph orders what to get first, like an income certificate before a scholarship",
+      "Kannada voice through Sarvam AI. Gemini explains from verified guide passages but never decides eligibility",
+      "Grievance filing with a reference ID and status timeline",
+    ],
+    stack: ["Python", "FastAPI", "React", "Vite", "SQLite", "NetworkX", "Tesseract OCR", "Sarvam AI", "Gemini API"],
+    links: [
+      { label: "Live demo", href: "https://setunex.vercel.app" },
+      { label: "Source", href: "https://github.com/varuns636/SETUNEX" },
+    ],
+  },
   {
     slug: "annarelay",
     title: "AnnaRelay",
@@ -199,7 +222,7 @@ export const techCount = stackGroups.reduce((n, g) => n + g.items.length, 0);
 export const stats = [
   { value: projects.length, decimals: 0, suffix: "", label: "Case files on record" },
   { value: techCount, decimals: 0, suffix: "", label: "Technologies in the stack" },
-  { value: recognition.length, decimals: 0, suffix: "", label: "Hackathons & competitions" },
+  { value: recognition.length, decimals: 0, suffix: "", label: "Hackathons, contests & events" },
 ] as const;
 
 /* -------------------------------------------------------------- CONTACT */
