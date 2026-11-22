@@ -48,6 +48,7 @@ export const recognition = [
   { date: "Nov 2026", title: "Code for INNOVEX '26", where: "24-hour national-level hackathon, NSS IT Wing, NMAMIT, at Nitte University, Mangaluru. Jan Setu track, built SETUNEX", tag: "Hackathon" },
   { date: "Oct 2026", title: "National Level Hackathon 3.0", where: "\"Innovate for Impact\", R R Institute of Technology, Bengaluru", tag: "Hackathon" },
   { date: "Oct 2026", title: "Cyber Sante: A week for Cyber Security", where: "Department of CSE, AIT, with Lakshya Student Forum", tag: "Event" },
+  { date: "Jun 2025", title: "Ctrl + Alt + Compete", where: "Hackathon, RV College of Engineering, with IETE, IEEE Bangalore Section, IEEE SPS and IEEE CTSoc. Lead sponsor Synaptics", tag: "Hackathon" },
   { date: "May 2025", title: "Second place, Quantum Qriosity", where: "Quiz competition, Department of Physics, AIT", tag: "2nd place" },
   { date: "Mar 2025", title: "Promptathon 2025", where: "Simba GPT, Acharya AI Fest 2025, with IVIS Labs", tag: "Hackathon" },
   { date: "Mar 2025", title: "Build for Bengaluru", where: "12-hour hackathon, Sri Krishna Institute of Technology, with IEEE Bangalore Section", tag: "Hackathon" },
