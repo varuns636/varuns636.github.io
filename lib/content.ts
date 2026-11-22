@@ -43,6 +43,7 @@ export const about = {
 } as const;
 
 export const recognition = [
+  { date: "Nov 2026", title: "First place, Build With Sarvam", where: "24-hour AI hackathon, Vertex Club, REVA University. With Jodi, won Rs 13,000 in Sarvam API credits", tag: "Winner" },
   { date: "Sep 2026", title: "Best Team, Best Innovation", where: "Smart India Hackathon 2026, internal round, AIT. With BIS Assistant", tag: "Winner" },
   { date: "Nov 2026", title: "Code for INNOVEX '26", where: "24-hour national-level hackathon, NSS IT Wing, NMAMIT, at Nitte University, Mangaluru. Jan Setu track, built SETUNEX", tag: "Hackathon" },
   { date: "Oct 2026", title: "National Level Hackathon 3.0", where: "\"Innovate for Impact\", R R Institute of Technology, Bengaluru", tag: "Hackathon" },
@@ -68,6 +69,24 @@ export type Project = {
 };
 
 export const projects: readonly Project[] = [
+  {
+    slug: "jodi",
+    title: "Jodi",
+    kind: "AI voice agent / HealthTech",
+    status: "1st place, Build With Sarvam",
+    oneLiner: "A 42-day voice care companion for mothers and newborns after childbirth.",
+    summary:
+      "Built in 24 hours at REVA University with team Return 0. Jodi calls the family on any phone, even a keypad phone, in Kannada first. Everyday speech becomes clinical facts, fixed rules flag mother and baby together as green, amber or red, and a red flag stays open until a human confirms they were reached.",
+    points: [
+      "Sarvam Voice Agent with Saaras speech-to-text, Bulbul v4 speech and mid-call tools",
+      "Sarvam-105B structured outputs turn \"four cloths since morning\" into pads soaked = 4",
+      "Versioned clinical rules, not AI, decide every red or amber flag",
+      "Escalation tickets alert the family and the ASHA and close only when a human confirms contact",
+      "Every record entry carries a source label and sits in a tamper-evident hash chain",
+    ],
+    stack: ["Python", "FastAPI", "SQLModel", "APScheduler", "React", "TypeScript", "Sarvam AI"],
+    links: [{ label: "Source", href: "https://github.com/varuns636/jodi" }],
+  },
   {
     slug: "setunex",
     title: "SETUNEX",
