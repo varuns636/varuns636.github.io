@@ -143,18 +143,6 @@ export const projects: readonly Project[] = [
     links: [{ label: "Source", href: "https://github.com/varuns636/bis-chatbot" }],
   },
   {
-    slug: "metromates",
-    title: "MetroMates",
-    kind: "Matching app / Mobility",
-    status: "Hackathon",
-    oneLiner: "Matches metro commuters who can share an auto from the same station.",
-    summary:
-      "A shared-auto matching app for metro commuters. Riders leaving the same station toward the same area are grouped so they can split one auto instead of each taking their own.",
-    points: [],
-    stack: [],
-    links: [],
-  },
-  {
     slug: "vamb",
     title: "Vamb",
     kind: "Android / On-device AI",

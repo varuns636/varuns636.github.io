@@ -11,8 +11,7 @@ All five sections are built: Hero, About (bio, stat strip, service record), Proj
 files plus "also on file"), Stack, and Contact (with footer). The fixed StatusBar doubles as the section nav.
 
 Content came from the previous static portfolio at `../Portfolio` and the project READMEs.
-MetroMates has no source material yet. Its stack, points and links are empty in `lib/content.ts`.
-Empty arrays hide those blocks, so fill them in when details exist.
+Empty `points`, `stack` or `links` arrays in `lib/content.ts` hide those blocks on a case file.
 `public/varun-s-resume.pdf` is the public résumé (no phone number). Never copy anything from `../Portfolio/private/`.
 
 ## Deployment
@@ -25,6 +24,7 @@ Empty arrays hide those blocks, so fill them in when details exist.
 
 ## Content decisions
 
+- MetroMates was removed at the user's request (2026-11-23). Do not add it back.
 - The user does not want the "Also on file" list (Programming in C, small-model benchmark) or the
   "1.7B params" stat on the site. Keep them out.
 
